@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="90.930229"
+   height="80.828766"
+   viewBox="0 0 90.930231 80.828773"
+   version="1.1"
+   id="svg2216"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2210">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath719">
+      <g
+         id="use721"
+         style="display:inline" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata2213">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="matrix(0.8698948,0,0,1.9943297,-5.6117235,-334.50815)"
+     style="stroke-width:0.999894;stroke-dasharray:none">
+    <rect
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.682267;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect816"
+       width="104.53014"
+       height="40.529289"
+       x="6.4510369"
+       y="167.72961" />
+    <text
+       x="61.999928"
+       y="75.964867"
+       xml:space="preserve"
+       fill="#9cdd5a"
+       font-size="58.9057px"
+       font-family="Helvetica"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Algerian;-inkscape-font-specification:Algerian;display:inline;stroke-width:0.999894;stroke-dasharray:none"
+       text-anchor="middle"
+       id="text19"
+       transform="matrix(0.98462517,0,0,1.0156149,-3.6359103,131.07951)"><tspan
+         style="fill:#008000;stroke-width:0.999894;stroke-dasharray:none"
+         id="tspan613">B</tspan><tspan
+         style="fill:#800080;stroke-width:0.999894;stroke-dasharray:none"
+         id="tspan405">P</tspan><tspan
+         style="fill:#ff0000;stroke-width:0.999894;stroke-dasharray:none"
+         id="tspan509">L</tspan></text>
+  </g>
+</svg>

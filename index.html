@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Welcome to the Brooklyn Library</title>
+</head>
+<body>
+
+    <div id="main-wrapper">
+
+        <div id="error-message-box" class="hidden-popup"></div>
+        <div id="error-power-layer" class="hidden-popup"></div>
+    
+        <div id="power-layer" class="hidden-popup"></div>
+
+        <header>          
+            <h1 id="header-title">Brooklyn Public Library</h1>
+            <div id="nav-wrapper">
+                <nav>
+                    <ul class="nav-ul">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#favorites">Favorites</a></li>
+                        <li><a href="#coffee-shop">Coffee shop</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                        <li><a href="#library-card">Library Сard</a></li>
+                    </ul>
+                </nav>
+                <div id="profile"><img src="./assets/img/icon_profile.svg" alt="profile"></div>
+                <div class="burger-button"> </div>
+
+                <!-- Modal windows START -->
+                <div id="login-ini-popup" class="hidden-popup">
+                    <p>Profile</p>
+                    <p id="login-btn">Log in</p>
+                    <p id="register-btn">Register</p>
+                </div>
+
+                <div id="profile-mini-popup" class="hidden-popup">
+                    <p id="profile-minipopup-title">Profile</p>
+                    <p id="my-profile-btn">My profile</p>
+                    <p id="log-out-btn">Log Out</p>
+                </div>
+            </div>
+
+            <div id="login-popup" class="hidden-popup">
+                <img class="close-window-btn" width=15 height=15 src="./assets/img/close_btn.svg" alt="close-window">
+                
+                <div class="popup-wrapper">
+                    <div class="popup-title">login</div>
+
+                    <label for="login-e-mail" class="popup-label">E-mail or readers card</label>
+                    <input type="text" class="popup-input" id="login-e-mail">
+
+                    <label for="log-in-password" class="popup-label">Password</label>
+                    <input type="text" class="popup-input" id="log-in-password">
+
+                    <button class="popup-button" id="login-login-btn">Log In</button>
+
+                    <div class="popup-bottom-line-wrapper">
+                        <div>Don't have an account?</div>
+                        <a href="#" id="go-to-register">Register</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="register-popup" class="hidden-popup">
+                <img class="close-window-btn" width=15 height=15 src="./assets/img/close_btn.svg" alt="close-window">
+                
+                <div class="popup-wrapper">
+                    <div class="popup-title">Register</div>
+
+                    <label for="first-name" class="popup-label">First name</label>
+                    <input type="text" class="popup-input" id="first-name" pattern="[A-Za-zА-Яа-яЁё]" autocomplete="given-name">
+
+                    <label for="last-name" class="popup-label">Last name</label>
+                    <input type="text" class="popup-input" id="last-name" pattern="[A-Za-zА-Яа-яЁё]" autocomplete="family-name">
+                    
+                    <label for="register-e-mail" class="popup-label">E-mail</label>
+                    <input type="text" class="popup-input" id="register-e-mail">
+
+                    <label for="register-password" class="popup-label">Password</label>
+                    <input type="text" class="popup-input" id="register-password">
+
+                    <button class="popup-button" id="register-signup-btn">Sign Up</button>
+
+                    <div class="popup-bottom-line-wrapper">
+                        <div>Already have an account?</div>
+                        <a href="#" id="go-to-login">Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="my-profile-popup" class="hidden-popup">
+                <div id="my-profile-black-field">
+                    <div id="id-box">jd</div>
+                    <div id="name-box">john doe</div>
+                </div>
+                <div id="my-profile-white-field">
+                    <img class="close-window-btn" width=15 height=15 src="./assets/img/close_btn.svg" alt="close-window">
+                    <div id="white-field-wrapper">
+                        <div class="big-popup-title">My profile</div>
+                        <div id="white-field-stats">
+                            <div id="my-profile-visits">
+                                <div class="stats-title">Visits</div>
+                                <div class="stats-icon"><img src="./assets/img/visits.svg" alt="visits"></div>
+                                <div id="my-profile-visits-value" class="stats-value">23</div>
+                            </div>
+                            <div id="my-profile-bonuses">
+                                <div class="stats-title">Bonuses</div>
+                                <div class="stats-icon"><img src="./assets/img/bonuses.svg" alt="bonuses"></div>
+                                <div id="my-profile-bonuses-value" class="stats-value">1240</div>
+                            </div>
+                            <div id="my-profile-books">
+                                <div class="stats-title">Books</div>
+                                <div class="stats-icon"><img src="./assets/img/books.svg" alt="books"></div>
+                                <div id="my-profile-books-value" class="stats-value">2</div>
+                            </div>
+                        </div>
+                        <div id="white-field-rented-books">
+                            <div id="rented-books-title">Rented books</div>
+                            <div id="rented-books-list">
+                                <ul id="my-profile-ul">
+                                    <!-- <li><span>The Last Queen, Clive Irving</span></li>
+                                    <li><span>Dominicana, Angie Cruz</span></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="white-field-card-number">
+                            <div id="card-number-title">Card number</div>
+                            <div id="card-number-code"></div>
+                            <div id="card-number-copy"><img src="./assets/img/icon_copy.svg" alt="copy-card-number"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buy-a-card-popup" class="hidden-popup">
+                <div id="buy-a-card-header">
+                    <div class="big-popup-title">Buy a library card</div>
+                    <img class="close-window-btn" width=15 height=15 src="./assets/img/close_btn_white.svg" alt="close-window">
+                </div>
+
+                <div id="buy-a-card-wrapper">
+                    <form id="carddata">
+                        <label for="credit-card-number" class="popup-label">Bank card number</label>
+                        <input type="text" name="credit-card-number" id="credit-card-number" class="popup-input">
+
+                        <label for="exp-code" class="popup-label">Expiration code</label>
+                        <div id="exp-code-double-field">
+                            <input type="text" name="exp-code" id="exp-code" class="popup-input short-field">
+                            <input type="text" name="exp-code-ext" id="exp-code-ext" class="popup-input short-field">
+                        </div>
+
+                        <label for="cvc" class="popup-label">CVC</label><br>
+                        <input type="text" name="cvc" id="cvc" class="popup-input short-field"><br>
+
+                        <label for="holder-name" class="popup-label">Cardholder name</label>
+                        <input type="text" name="holder-name" id="holder-name" class="popup-input">
+
+                        <label for="postal" class="popup-label">Postal code</label>
+                        <input type="text" name="postal" id="postal" class="popup-input"><br>
+
+                        <label for="city" class="popup-label">City / Town</label>
+                        <input type="text" name="city" id="city" class="popup-input">
+
+                        <div id="credit-card-data-button">
+                            <button class="popup-button" id="credit-card-submit-btn" disabled>Buy</button>
+                            <p id="card-price">$ 25.00</p>
+                        </div>
+                    </form>
+                    
+                    <p id="buy-a-card-intro">If you are live, work, attend school, or pay property taxes in 
+                        New York State, you can get a $25 digital library card right 
+                        now using this online form. Visitors to New York State can 
+                        also use this form to apply for a temporary card.
+                    </p>
+                </div>
+            </div>
+            <!-- Modal windows END -->
+
+        </header>
+
+        <main>
+
+            <section id="welcome">
+                
+                <h3>welcome</h3>
+
+                <div id="overlay"></div>
+
+                <p id="welcome-title">Welcome&nbsp;<br>to the Brooklyn<br>Library</p>
+
+            </section>
+
+            <section id="about">
+                <h2>About</h2>
+
+                <p>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+                
+                <img src="./assets/img/about/Arrow-to-the-left.svg" alt="left-arrow" id="left-arrow" class="about-more-controls arrow arrow-disabled">
+                <img src="./assets/img/about/Arrow-to-the-right.svg" alt="right-arrow" id="right-arrow" class="about-more-controls arrow">
+                <div id="carousel-frame">
+                    <div id="carousel">
+                        <img src="./assets/img/about/About-image1.jpg" alt="img1">
+                        <img src="./assets/img/about/About-image2.jpg" alt="img2">
+                        <img src="./assets/img/about/About-image3.jpg" alt="img3">
+                        <img src="./assets/img/about/About-image4.jpg" alt="img4">
+                        <img src="./assets/img/about/About-image5.jpg" alt="img5">
+                    </div>
+
+                </div>
+                
+
+                <ul id="carousel-pagination">
+                    <li class="carousel-bullet-box"><div class="carousel-bullet active-bullet" data-bulindex="1"></div></li>
+                    <li class="carousel-bullet-box"><div class="carousel-bullet" data-bulindex="2"></div></li>
+                    <li class="carousel-bullet-box"><div class="carousel-bullet" data-bulindex="3"></div></li>
+                    <li class="carousel-bullet-box"><div class="carousel-bullet about-more-controls" data-bulindex="4"></div></li>
+                    <li class="carousel-bullet-box"><div class="carousel-bullet about-more-controls" data-bulindex="5"></div></li>
+                </ul>
+
+            </section>
+
+            <section id="favorites">
+                <h2>Favorites</h2>
+                
+                <div id="favorites-wrapper">
+                    <fieldset id="season-pick-radios">
+                        <legend>Pick favorites of season</legend>
+                    
+                        <div>
+                        <input type="radio" id="winter" name="season" value="winter" checked>
+                        <label for="winter">Winter</label>
+                        </div>
+                    
+                        <div>
+                        <input type="radio" id="spring" name="season" value="spring">
+                        <label for="spring">Spring</label>
+                        </div>
+                    
+                        <div>
+                        <input type="radio" id="summer" name="season" value="summer">
+                        <label for="summer">Summer</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="autumn" name="season" value="autumn">
+                            <label for="autumn">Autumn</label>
+                        </div>
+                    </fieldset>
+
+                    <div id="favorites-items-wrapper">
+                        <div class="favorite-item assignOrder1" id="item1">
+
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>The Book Eaters</span><br>By Sunyi Dean</p>
+
+                            <p class="favorite-item-description">
+                                An unusual sci-fi story about a book eater 
+                                woman who tries desperately to save her dangerous 
+                                mind-eater son from tradition and certain death. 
+                                Complete with dysfunctional family values, light 
+                                Sapphic romance, and a strong, complex protagonist. 
+                                Not for the faint of heart.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book1.jpg" alt="favorite book 1">
+                        </div>
+
+                        <div class="favorite-item assignOrder2" id="item2">
+
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>Dante: Poet of the Secular World</span><br>By Erich Auerbach</p>
+
+                            <p class="favorite-item-description">
+                                Auerbach's engaging book places the 'Comedy' within 
+                                he tradition of epic, tragedy, and philosophy in general, 
+                                arguing for Dante's uniqueness as one who raised the individual 
+                                and his drama of soul into something of divine significance—an 
+                                inspired introduction to Dante's main themes.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book2.jpg" alt="favorite book 2">
+                        </div>
+
+                        <div class="favorite-item assignOrder3" id="item3">
+
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>Cackle</span><br>By Rachel Harrison</p>
+
+                            <p class="favorite-item-description">
+                                Are your Halloween movies of choice The Witches of Eastwick 
+                                and Practical Magic? Look no further than here - where 
+                                a woman recovering from a breakup moves to a quaint town 
+                                in upstate New York and befriends a beautiful witch.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book3.jpg" alt="favorite book 3">
+                        </div>
+
+                        <div class="favorite-item assignOrder4" id="item4">
+
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>The Last Queen</span><br>By Clive Irving</p>
+
+                            <p class="favorite-item-description">
+                                A timely and revelatory new biography of Queen Elizabeth 
+                                (and her family) exploring how the Windsors have evolved 
+                                and thrived as the modern world has changed around them.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book4.jpg" alt="favorite book 4">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item5">
+
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>The Body</span><br>By Stephen King</p>
+
+                            <p class="favorite-item-description">
+                                Powerful novel that takes you back to a nostalgic time, 
+                                exploring both the beauty and danger and loss of innocence 
+                                that is youth.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book5.jpg" alt="favorite book 5">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item6">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Days of Distraction</span><br>By Alexandra Chang</p>
+
+                            <p class="favorite-item-description">
+                                A sardonic view of Silicon Valley culture, a meditation 
+                                on race, and a journal of displacement and belonging, all 
+                                in one form-defying package of spare prose.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book6.jpg" alt="favorite book 6">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item7">                        
+                            
+                            <p class="staff-picks">Staff Picks</p>
+
+                            <p class="favorite-item-title"><span>Crude: A Memoir</span><br>By Pablo Fajardo &amp; Sophie Tardy-Joubert</p>
+
+                            <p class="favorite-item-description">
+                                Drawing and color by Damien Roudeau | This book 
+                                illustrates the struggles of a group of indigenous 
+                                Ecuadoreans as they try to sue the ChevronTexaco 
+                                company for damage their oil fields did to 
+                                the Amazon and her people
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book7.jpg" alt="favorite book 7">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item8">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>The Octopus Museum: Poems</span><br>By Brenda Shaughnessy</p>
+
+                            <p class="favorite-item-description">
+                                This collection of bold and scathingly beautiful feminist 
+                                poems imagines what comes after our current age of environmental 
+                                destruction, racism, sexism, and divisive politics.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book8.jpg" alt="favorite book 8">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item9">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Casual Conversation</span><br>By Renia White</p>
+
+                            <p class="favorite-item-description">
+                                White's impressive debut collection takes readers 
+                                through and beyond the concepts of conversation and 
+                                the casual - both what we say to each other and what 
+                                we don't, examining the possibilities around how we 
+                                construct and communicate identity. 
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book9.jpg" alt="favorite book 9">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item10">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Rickey: The Life and Legend</span><br>By Howard Bryant</p>
+
+                            <p class="favorite-item-description">
+                                With the fall rolling around, one can't help but think of 
+                                baseball's postseason coming up! And what better way to prepare 
+                                for it than reading the biography of one of the game's all-time 
+                                greatest performers, the Man of Steal, Rickey Henderson?
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book10.jpg" alt="favorite book 10">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item11">
+
+                            <p class="staff-picks">Staff Picks</p>
+                            
+                            <p class="favorite-item-title"><span>Carry: A Memoir of Survival on Stolen Land</span><br>By Toni Jenson</p>
+
+                            <p class="favorite-item-description">
+                                This memoir about the author's relationship with 
+                                gun violence feels both expansive and intimate, 
+                                resulting in a lyrical indictment of the way things are.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book11.jpg" alt="favorite book 11">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item12">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Dominicana</span><br>By Angie Cruz</p>
+
+                            <p class="favorite-item-description">
+                                A fascinating story of a teenage girl who marries 
+                                a man twice her age with the promise to bring her 
+                                to America. Her marriage is an opportunity for her 
+                                family to eventually immigrate. For fans of Isabel 
+                                Allende and Julia Alvarez.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book12.jpg" alt="favorite book 12">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item13">
+
+                            <p class="staff-picks">Staff Picks</p>
+                                                    
+                            <p class="favorite-item-title"><span>Let My People Go Surfing</span><br>By Yvon Chouinard</p>
+
+                            <p class="favorite-item-description">
+                                Chouinard—climber, businessman, environmentalist—shares 
+                                tales of courage and persistence from his experience of 
+                                founding and leading Patagonia, Inc. Full title: Let My 
+                                People Go Surfing: The Education of a Reluctant Businessman, 
+                                Including 10 More Years of Business Unusual.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book13.jpg" alt="favorite book 13">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item14">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Shark Dialogues: A Novel</span><br>By Kiana Davenport</p>
+
+                            <p class="favorite-item-description">
+                                An epic saga of seven generations of one family encompasses 
+                                the tumultuous history of Hawaii as a Hawaiian woman gathers 
+                                her four granddaughters together in an erotic tale of villains 
+                                and dreamers, queens and revolutionaries, lepers and healers.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book14.jpg" alt="favorite book 14">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item15">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>The Great Fire</span><br>By Lou Ureneck</p>
+
+                            <p class="favorite-item-description">
+                                The harrowing story of an ordinary American and 
+                                a principled Naval officer who, horrified by the burning 
+                                of Smyrna, led an extraordinary rescue effort that saved 
+                                a quarter of a million refugees from the Armenian Genocide
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book15.jpg" alt="favorite book 15">
+                        </div>
+
+                        <div class="favorite-item hidden-element" id="item16">
+
+                            <p class="staff-picks">Staff Picks</p>                        
+                            
+                            <p class="favorite-item-title"><span>Slug: And Other Stories</span><br>By Megan Milks</p>
+
+                            <p class="favorite-item-description">
+                                Exes Tegan and Sara find themselves chained together 
+                                by hairballs of codependency. A father and child 
+                                experience the shared trauma of giving birth to gods 
+                                from their wounds.
+                            </p>
+                            <button class="favorite-button">Buy</button>
+                            <img class="favorite-book" src="./assets/img/favorite/Favorite-Book16.jpg" alt="favorite book 16">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="coffee-shop">
+                <h2>Coffee shop</h2>
+
+                <p id="coffee-shop-intro">
+                    In our library, we have of cozy coffee shop, welcoming in customers with 
+                    frothy cappuccinos and friendly conversation. You can get a favorite book 
+                    and read in coffee shop. Our barista to cook you best coffee, and also you 
+                    can try desserts from bakery.
+                </p>
+
+                <div id="coffee-shop-menu-wrapper">
+
+                    <div id="coffee-n-tee">
+                        <table>
+                            <caption class="menu-title">Coffee & Tea</caption>
+                            <tr>
+                                <td>Cold Brew Coffee</td>
+                                <td></td>
+                                <td>$3</td>
+                             </tr>
+                             <tr>
+                                <td>French Press Pot</td>
+                                <td></td>
+                                <td>$5</td>
+                             </tr>
+                             <tr>
+                                <td>Espresso</td>
+                                <td></td>
+                                <td>$2</td>
+                             </tr>
+                             <tr>
+                                <td>Cappuccino</td>
+                                <td></td>
+                                <td>$4</td>
+                             </tr>
+                             <tr>
+                                <td>Hot tea</td>
+                                <td></td>
+                                <td>$2</td>
+                             </tr>
+                             <tr>
+                                <td>Cold tea</td>
+                                <td></td>
+                                <td>$2</td>
+                             </tr>
+
+                        </table>
+                    </div>
+
+                    <div id="desserts-n-cakes">
+                        <table>
+                            <caption class="menu-title">Desserts & Cakes</caption>
+                            <tr>
+                                <td>Forest Gateau</td>
+                                <td></td>
+                                <td>$16</td>
+                             </tr>
+                             <tr>
+                                <td>Blue Moon</td>
+                                <td></td>
+                                <td>$16</td>
+                             </tr>
+                             <tr>
+                                <td>Truffle Cake</td>
+                                <td></td>
+                                <td>$15</td>
+                             </tr>
+                             <tr>
+                                <td>Chocolate Cake</td>
+                                <td></td>
+                                <td>$18</td>
+                             </tr>
+                             <tr>
+                                <td>Poet’s Dream Cake</td>
+                                <td></td>
+                                <td>$16</td>
+                             </tr>
+                             <tr>
+                                <td>Pineapple Cake</td>
+                                <td></td>
+                                <td>$14</td>
+                             </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="contacts">
+                <h2>Our Contacts</h2>
+
+                <div id="contacts-wrapper">
+                    <div class="contacts-text">
+                        <p id="contacts-text-title">For all Library inquiries:</p>
+
+                        <p>Please call <a href="tel:(617)730-2370">(617) 730-2370</a></p>
+                        <p>For TTY service, please call <a href="tel:(617)730-2370">(617) 730-2370</a></p>
+                        <p>Putterham Library: <a href="tel:(617)730-2385">(617) 730-2385</a></p>
+
+                        <p id="contacts-text-senior-staff">Senior Staff</p>
+
+                        <p id="last-string">Library Director: <a id="mailto-lib-director" href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
+
+                    </div>
+                    <img src="./assets/img/contacts-map.jpg" alt="contacts map">
+                </div>
+            </section>
+
+            <section id="library-card">
+                <h2>Digital Library Cards</h2>
+
+                <div id="library-card-wrapper">
+
+                    <div id="find-card-wrapper">
+                        <p id="find-card-title">Find your Library card</p>
+
+                        <form id="find-card-form" action="#">
+                            <div id="find-card-form-input">
+                                <p>Brooklyn Public Library</p>
+                                <input type="text" id="library-card-reader-name" placeholder="Reader's name">
+                                <input type="text" id="library-card-number" placeholder="Card number">
+                            </div>
+
+                            <div id="library-card-stats" class="hidden-element">
+                                <div id="card-stats-visits">
+                                    <p>Visits</p>
+                                    <img src="./assets/img/visits.svg" alt="visits">
+                                    <p id="card-stats-visits-value">0</p>
+                                </div>
+
+                                <div id="card-stats-bonuses">
+                                    <p>Bonuses</p>
+                                    <img src="./assets/img/bonuses.svg" alt="bonuses">
+                                    <p id="card-stats-bonuses-value">0</p>
+                                </div>
+                                
+                                <div id="card-stats-books">
+                                    <p>Books</p>
+                                    <img src="./assets/img/books.svg" alt="books">
+                                    <p id="card-stats-books-value">0</p>                                    
+                                </div>                                
+                            </div>
+
+                            <button id="check-the-card-btn">Check the card</button>
+                        </form>
+                    </div>
+                    
+                    <div id="get-a-card">
+                        <p id="get-a-card-title">Get a reader card</p>
+                        <p id="get-a-card-text">
+                            You will be able to see a reader card after 
+                            logging into account or you can register 
+                            a new account
+                        </p>
+
+                        <div id="get-a-card-buttons">
+                            <button id="sign-up-btn">Sign Up</button>
+                            <button id="log-in-btn">Log in</button>
+                        </div>
+                    </div>
+
+                    <div id="visit-your-profile" class="hidden-element">
+                        <p id="visit-your-profile-title">Visit your profile</p>
+                        <p id="visit-your-profile-text">
+                            With a digital library card you get free access to 
+                            the Library’s wide array of digital resources including 
+                            e-books, databases, educational resources, and more.
+                        </p>
+    
+                        <div id="visit-your-profile-button">
+                            <button id="visit-your-profile-btn">Profile</button>
+                        </div>
+                    </div>
+                </div>                                  
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <p id="footer-address"> <a href="https://goo.gl/maps/6Qi6z5zQC7ZSppWs5">286 Cadman Plaza, New York, NY 11238, United States</a></p>
+                <p class="work-hours">Mon - Fri <br>08:00 am - 07:00 pm</p>
+            </div>
+
+            <div>
+                <div id="footer-social">
+                    <ul>
+                        <li><a href="https://twitter.com/npr"><img src="./assets/img/footer/u_twitter-alt.svg" alt="NPR twitter"></a></li>
+                        <li><a href="https://www.instagram.com/Natgeo"><img src="./assets/img/footer/u_instagram.svg" alt="National Geographic instagram"></a></li>
+                        <li><a href="https://en-gb.facebook.com/ScientificAmerican"><img src="./assets/img/footer/u_facebook-f.svg" alt="Scientific American facebook"></a></li>
+                    </ul>
+                </div>
+                <p class="work-hours">Sat - Sun <br>10:00 am - 06:00 pm</p>                
+            </div>
+
+            <div id="devider-line"></div>
+            
+            <div id="footer-rs-school">
+                <p>2023</p>
+                <p><a href="https://rs.school/js-stage0/">The Rolling Scopes School</a></p>
+                <p><a href="https://github.com/cheidru">Igor Checheurov</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="./js/menus.js"></script>
+    <script src="./js/validation.js"></script>    
+    <script src="./js/index.js"></script>
+</body>
+</html>
