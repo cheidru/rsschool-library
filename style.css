@@ -261,7 +261,7 @@ nav a:hover {
 }
 
 #error-message-box {
-    position: absolute;
+    position: fixed;
     top: 50vh;
     right: 50vw;
     padding: 20px;
