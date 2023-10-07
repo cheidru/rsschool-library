@@ -251,7 +251,7 @@ nav a:hover {
 }
 
 #power-layer {
-    position: absolute;
+    position: foxed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -294,7 +294,7 @@ nav a:hover {
 }
 
 #error-power-layer {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
