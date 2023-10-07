@@ -121,7 +121,7 @@ table {
 
 .hidden-popup {
     display: none;
-    position: absolute;
+    position: fixed;
 }
 /* common end */
 
@@ -251,19 +251,18 @@ nav a:hover {
 }
 
 #power-layer {
-    position: foxed;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color:rgba(16, 44, 28, 0.528);
     z-index: 2;
 }
 
 #error-message-box {
     position: fixed;
-    top: 50vh;
-    right: 50vw;
+
     padding: 20px;
     height: auto;
     color: #000;
@@ -297,8 +296,8 @@ nav a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color:rgba(0, 0, 0, 0.5);
     z-index: 4;
 }

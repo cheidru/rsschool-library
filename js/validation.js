@@ -243,6 +243,7 @@ function messageWindow(messageInnerHTML, windowWidth) {
     errorMessage.style.width = windowWidth;
     errorMessage.innerHTML = messageInnerHTML;
     errorMessage.classList.remove('hidden-popup');
+    errorMessage.style.transform = "translate(35vw, 30vh)";
     errorMessagePowerLayer.classList.remove('hidden-popup');
     // prevent scroll
     anyWhere.style.overflow = "hidden";
@@ -254,7 +255,7 @@ errorMessagePowerLayer.addEventListener('click', (event) => {
     errorMessage.classList.add('hidden-popup');
     errorMessagePowerLayer.classList.add('hidden-popup');
     // allow scroll
-    anyWhere.style.overflow = "visible";
+    // anyWhere.style.overflow = "visible";
 });
 
 // Form input validation END
