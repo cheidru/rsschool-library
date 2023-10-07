@@ -103,7 +103,6 @@ function closeModalWindow(modalWindow) {
 function openModalWindow(modal, name) {
     // Compensate scrollbar disappearance when overflow hidden on
     let compensateScrollBarWidth = (window.innerWidth - document.documentElement.clientWidth) + 'px';
-
     modal.classList.remove('hidden-popup');
     // Hide overflow to prevent window scroll down
     anyWhere.style.overflow = "hidden";
@@ -218,8 +217,13 @@ function goRegisterFoo(event) {
     // Check if Sign Up button in Library Card section is clicked
     if (event.target !== signUpBTN) {
         closeModalWindow(activePopUp.obj);
-    } else {
         document.documentElement.scrollTop = '0px';
+        registerPopUp.style.top = "0px";
+        registerPopUp.style.transform = "translate(50%, 25%)";
+    } else {
+        // Shift popup if button pushed down the page
+        registerPopUp.style.top = window.scrollY + 'px';
+        registerPopUp.style.transform = "translate(50%, 25%)";
     }
     clearFields();
     powerLayer.classList.remove('hidden-popup');
@@ -231,25 +235,26 @@ function goLoginFoo(event) {
     // Check if Log In button in Library Card section is clicked
     if (event.target !== logInBTN && !event.target.classList.contains("favorite-button")) {
         closeModalWindow(activePopUp.obj);
-    } else {
         document.documentElement.scrollTop = '0px';
+        loginPopUp.style.top = '0px';
+        loginPopUp.style.transform = "translate(50%, 50%)";
+    } else {
+        // Shift popup if button pushed down the page
+        loginPopUp.style.top = window.scrollY + 'px';
+        loginPopUp.style.transform = "translate(50%, 50%)";
     }
-    clearFields();
+    clearFields(); 
     powerLayer.classList.remove('hidden-popup');
     openModalWindow(loginPopUp, 'loginPopUp');
 }
 
 function goBuyCard(event) {
     event.stopImmediatePropagation();
-    
     document.documentElement.scrollTop = '0px';
     buyCardPopUp.style.display = 'flex';
     powerLayer.classList.remove('hidden-popup');
     openModalWindow(buyCardPopUp, 'buyCardPopUp');
 }
-
-
-
 
 function goMyProfileFoo(event) {
     event.stopImmediatePropagation();
